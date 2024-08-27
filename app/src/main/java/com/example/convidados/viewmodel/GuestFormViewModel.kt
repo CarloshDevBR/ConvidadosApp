@@ -8,6 +8,8 @@ import com.example.convidados.repository.GuestRepository
 class GuestFormViewModel(application: Application) : AndroidViewModel(application) {
     private val repository = GuestRepository.getInstance(application)
 
+    fun getAll() = repository.getAll()
+
     fun insert(guest: GuestModel) = repository.insert(guest)
 
     fun update(guest: GuestModel) = repository.update(guest)
