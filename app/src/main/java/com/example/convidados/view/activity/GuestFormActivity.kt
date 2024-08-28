@@ -52,7 +52,11 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
         viewModel.guest.observe(this) {
             binding.editName.setText(it.name)
 
-            binding.radioPresent.isChecked = it.presence
+            if (it.presence) {
+                binding.radioPresent.isChecked = true
+            } else {
+                binding.radioAbsent.isChecked = true
+            }
         }
 
         viewModel.saveGuest.observe(this) {
